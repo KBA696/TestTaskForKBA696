@@ -1,0 +1,11 @@
+﻿@foreach (var item in @ViewBag.Countries)
+    {
+        <div class="block">
+            <div style="position: sticky;width: 100%;height: 100%;">
+                <img class="imgs" src="@((string.IsNullOrEmpty(@item.Picture) || @item.Picture == ".") ? @".\images\nou.jpeg" : @item.Picture)">
+                <div style="padding: 5px 0;">@item.Name</div>
+                <div>@item.Description</div><div style="position: absolute;left: 5px;bottom: 5px;">Рейтинг - @item.Rating</div>
+                <div style="position: absolute; right: 5px; bottom: 5px;">Цена - @item.Price</div>
+            </div>
+        </div>
+    }

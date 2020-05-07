@@ -1,0 +1,48 @@
+﻿@{
+    ViewData["pih"] = 250;
+    ViewBag.Message = 0;
+}
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01//EN" "http://www.w3.org/TR/html4/strict.dtd">
+<html>
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+    <title>Пример веб-страницы</title>
+    <link rel="stylesheet" href="/css/StyleSheet.css">
+    <script type="text/javascript" src="js/jquery-3.4.1.min.js"></script>
+    <script>
+
+            var max_price=@ViewData["max_price"];
+            var max_rating=@ViewData["max_rating"];
+    </script>
+    <script type="text/javascript" src="js/MainPage.js"></script>
+</head>
+<body OnLoad="Load()">
+    <div class="minim" style="text-align: right;">
+        <a style="margin: 15px;" href="/admin">Админка</a>
+    </div>
+    <div class="minim">
+        <ul style="width: max-content;margin: 0 auto;">
+            @foreach (var item in ViewBag.Countries)
+            {
+                <li><a class="my_boks5" href="#" OnClick="show(@(@ViewBag.Message++));setLocation();">@item</a></li>
+            }
+        </ul>
+    </div>
+    <div class="minim" style="width: 100%;text-align: right;">
+        Сортировка по: <select id="sort" style="margin-right: 15px;">
+            <option value="0">возростанию цены</option>
+            <option value="1">убыванию цены</option>
+            <option value="2">возростанию рейтинга</option>
+            <option value="3">убыванию рейтинга</option>
+        </select>
+    </div>
+    <div class="minim" id="menus">
+        <div class="my_boks1" id="menu" style="width: @ViewData["pih"]px;">
+            Цена:<br /><input id="select_min_price" /> - <input id="select_max_price" /><br /><br />
+            Рейтинг:<br /><input id="select_min_rating" /> - <input id="select_max_rating" />
+        </div>
+    </div>
+    <div id="content" class="my_boks2 container" style="width: calc(100% - @((int)@ViewData["pih"] + 100)px); min-width: 550px;position: absolute;left: @((int)@ViewData["pih"] + 50)px;">
+    </div>
+</body>
+</html>

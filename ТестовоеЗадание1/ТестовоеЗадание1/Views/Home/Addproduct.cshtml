@@ -1,0 +1,68 @@
+﻿@{
+    ViewBag.Message = 0;
+}
+<br />
+<br />
+<br />
+<br />
+<br />
+<br />
+<br />
+<br />
+<script>
+    function open2() {
+        var formData = new FormData();
+        formData.append("Name", $('#Name').val());
+        formData.append("Category", $('#Category').val());
+        formData.append("Description", $('#Description').val());
+        formData.append("Price", $('#Price').val());
+        formData.append("img", $("#File").prop('files')[0]);
+
+        $.ajax({
+            url: "/addproduct",
+            type: "POST",
+            data: formData,
+            cache: false,
+            processData: false,
+            contentType: false,
+            success: function (html) {
+                $("#content").html(html);
+            }
+        });
+    }
+</script>
+
+<div style="width: max-content;margin: 0 auto;">
+    <table>
+        <tr>
+            <td><label>Название товара</label></td>
+            <td><input id="Name" type="text"></td>
+        </tr>
+        <tr>
+            <td><label>Картинка товара</label></td>
+            <td><input type="file" id="File" name="fileInput" accept="image/jpeg"></td>
+        </tr>
+        <tr>
+            <td><label>Описание товара</label></td>
+            <td><textarea id="Description"> </textarea></td>
+        </tr>
+        <tr>
+            <td><label for="passwordField">Цена товара</label></td>
+            <td><input id="Price" type="text"></td>
+        </tr>
+        <tr>
+            <td><label for="passwordField">Категория</label></td>
+            <td>
+                <select id="Category">
+                    @foreach (var item in ViewBag.Countries)
+                    {
+                        <option value="@(@ViewBag.Message++)">@item</option>
+                    }
+                </select>
+            </td>
+        </tr>
+        <tr>
+            <td colspan="2" style="text-align: center"><input type="submit" OnClick="open2()" value="Войти"></td>
+        </tr>
+    </table>
+</div>
