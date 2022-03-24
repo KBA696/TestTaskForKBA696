@@ -32,7 +32,7 @@ namespace Client.ViewModel
             {
                 try
                 {
-                    var result = await client.GetAsync("https://localhost:7158/weatherforecast");
+                    var result = await client.GetAsync("https://localhost:5000/weatherforecast");
 
                     var response = await result.Content.ReadAsStringAsync();
 
@@ -194,7 +194,7 @@ namespace Client.ViewModel
                     string serialized = JsonConvert.SerializeObject(message);
                     StringContent stringContent = new StringContent(serialized, Encoding.UTF8, "application/json");
 
-                    var result = await client.PostAsync("https://localhost:7158/weatherforecast", stringContent);
+                    var result = await client.PostAsync("https://localhost:5000/weatherforecast", stringContent);
 
                     var response = await result.Content.ReadAsStringAsync();
 
