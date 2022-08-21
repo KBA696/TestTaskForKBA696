@@ -1,6 +1,6 @@
 ﻿using System;
 using System.Windows.Input;
-namespace БибдиотекаMVVM/*для MVVM для создания команд на кнопку*/
+namespace MVVM/*для MVVM для создания команд на кнопку*/
 {
     public class RelayCommand<T> : ICommand
     {

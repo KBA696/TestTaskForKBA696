@@ -13,14 +13,14 @@ using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
 using System.Windows.Shapes;
 
-namespace Client.View
+namespace Test2.View
 {
     /// <summary>
-    /// Логика взаимодействия для MessageControl.xaml
+    /// Interaction logic for MainWindow.xaml
     /// </summary>
-    public partial class MessageControl : UserControl
+    public partial class MainWindow : Window
     {
-        public MessageControl()
+        public MainWindow()
         {
             InitializeComponent();
         }
