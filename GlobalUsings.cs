@@ -1,0 +1,15 @@
+﻿global using Common;
+global using CommonViews;
+global using Microsoft.Win32;
+global using Reformers.Models;
+global using Reformers.ViewModels;
+global using Reformers.Views;
+global using System;
+global using System.Collections.Generic;
+global using System.Collections.ObjectModel;
+global using System.Linq;
+global using System.Windows;
+global using System.Windows.Input;
+global using System.Windows.Threading;
+global using System.Xml;
+global using System.Xml.Linq;
